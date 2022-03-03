@@ -1,0 +1,23 @@
+{
+  "name": "portfolio-revisited",
+  "version": "1.0.0",
+  "description": "A revamped version of the portfolio - hopefully with better styling and capability for user contact.",
+  "main": "server/server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cabralwilliams/portfolio-revisited.git"
+  },
+  "author": "Cabral Williams",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cabralwilliams/portfolio-revisited/issues"
+  },
+  "homepage": "https://github.com/cabralwilliams/portfolio-revisited#readme",
+  "dependencies": {
+    "nodemailer": "^6.7.2"
+  },
+  "devDependencies": {}
+}
