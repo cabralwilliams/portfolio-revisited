@@ -36,10 +36,16 @@ export const LOGIN_USER = gql`
 export const SEND_MESSAGE = gql`
     mutation sendMessage($sender_name: String!, $sender_email: String!, $message_text: String!) {
         sendMessage(sender_name: $sender_name, sender_email: $sender_email, message_text: $message_text) {
-            message_text
-            sender_name
-            sender_email
-            created_at
+            _id
+            username
+            email
+            inbox {
+                message_text
+                sender_name
+                sender_email
+                created_at
+                has_been_read
+            }
         }
     }
 `;

@@ -79,38 +79,38 @@ function Login() {
 
     return (
         <div>
-            <form id='signUpForm' onSubmit={handleUserCreate}>
+            <form id='signUpForm' onSubmit={handleUserCreate} className='flex-column align-items-center'>
                 <h3>Sign Up</h3>
-                <div className='flex-column'>
+                <div className='flex-column align-items-start'>
                     <label htmlFor='first_name'>First Name:</label>
                     <input type='text' id='first_name' name='first_name' onChange={handleSignUpChange} />
                 </div>
-                <div className='flex-column'>
+                <div className='flex-column align-items-start'>
                     <label htmlFor='last_name'>Last Name:</label>
                     <input type='text' id='last_name' name='last_name' onChange={handleSignUpChange} />
                 </div>
-                <div className='flex-column'>
+                <div className='flex-column align-items-start'>
                     <label htmlFor='signUpUsername'>Username:</label>
                     <input type='text' id='signUpUsername' name='signUpUsername' onChange={handleSignUpChange} />
                 </div>
-                <div className='flex-column'>
+                <div className='flex-column align-items-start'>
                     <label htmlFor='signUpEmail'>Email:</label>
                     <input type='text' id='signUpEmail' name='signUpEmail' onChange={handleSignUpChange} />
                 </div>
-                <div className='flex-column'>
+                <div className='flex-column align-items-start'>
                     <label htmlFor='signUpPassword'>Password:</label>
                     <input type='password' id='signUpPassword' name='signUpPassword' onChange={handleSignUpChange} />
                 </div>
                 <button type='submit'>Submit</button>
             </form>
 
-            <form id='signInForm' onSubmit={handleUserLogin}>
+            <form id='signInForm' onSubmit={handleUserLogin} className='flex-column align-items-center'>
                 <h3>Sign In</h3>
-                <div className='flex-column'>
+                <div className='flex-column align-items-start'>
                     <label htmlFor='signInUsername'>Username or Email:</label>
                     <input type='text' id='signInUsername' name='signInUsername' onChange={handleSignInChange} />
                 </div>
-                <div className='flex-column'>
+                <div className='flex-column align-items-start'>
                     <label htmlFor='signInPassword'>Password:</label>
                     <input type='password' id='signInPassword' name='signInPassword' onChange={handleSignInChange} />
                 </div>

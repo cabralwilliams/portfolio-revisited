@@ -1,5 +1,6 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux';
+import CitySceneSplash from '../../components/CitySceneSplash';
 
 function Home() {
     const state = useSelector(state => {
@@ -8,7 +9,7 @@ function Home() {
 
     console.log(state);
     return (
-        <div>This is a placeholder.</div>
+        <CitySceneSplash />
     )
 }
 

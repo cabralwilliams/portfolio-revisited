@@ -11,6 +11,8 @@ import About from './pages/About';
 import Login from './pages/Login';
 import Messages from './pages/Messages';
 import Home from './pages/Home';
+import Resume from './pages/Resume';
+import Success from './pages/Success';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { ApolloProvider, ApolloClient, InMemoryCache, createHttpLink } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
@@ -52,6 +54,8 @@ function App() {
                                 <Route path='/about' element={<About />} />
                                 <Route path='/login' element={<Login />} />
                                 <Route path='/messages' element={<Messages />} />
+                                <Route path='/resume' element={<Resume />} />
+                                <Route path='/success' element={<Success />} />
                             </Routes>
                         </main>
                         <Footer />

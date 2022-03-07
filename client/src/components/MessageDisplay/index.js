@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { formatTime } from '../../utils/formatTime';
 
 function MessageDisplay({ sender_name, created_at, sender_email, message_text, has_been_read, _id }) {
     //The message will by default be collapsed and must be opened with a button click
@@ -16,10 +17,10 @@ function MessageDisplay({ sender_name, created_at, sender_email, message_text, h
 
     if(areViewing) {
         return(
-            <div className='flex-column'>
+            <div className='flex-column border-bottom-2 margin-bottom-tiny padding-bottom-tiny'>
                 <div className='flex-row'>
                     <div>From: {sender_name} ({sender_email})</div>
-                    <div>Date: {created_at}</div>
+                    <div>Date: {formatTime(created_at)}</div>
                     <div>Status: {has_been_read ? "Read" : "Unread"}</div>
                     <button className='toggleView' onClick={toggleView}>Close Message</button>
                     <button>Mark Unread</button>
@@ -29,9 +30,9 @@ function MessageDisplay({ sender_name, created_at, sender_email, message_text, h
         )
     } else {
         return(
-            <div className='flex-row'>
+            <div className='flex-row  border-bottom-2 margin-bottom-tiny padding-bottom-tiny'>
                 <div>From: {sender_name} ({sender_email})</div>
-                <div>Date: {created_at}</div>
+                <div>Date: {formatTime(created_at)}</div>
                 <div>Status: {has_been_read ? "Read" : "Unread"}</div>
                 <button className='toggleView' onClick={toggleView}>Open Message</button>
             </div>

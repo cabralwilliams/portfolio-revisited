@@ -30,6 +30,14 @@ code {
     width: 100%;
 }
 
+.full-height {
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
 /* Background Color Styles */
 .bgColor8 {
     background-color: var(--color8);
@@ -56,6 +64,18 @@ main {
     align-items: center;
 }
 
+.flex-column {
+    display: flex;
+    flex-direction: column;
+}
+
+.flex-column input {
+    max-width: 400px;
+}
+
+.align-items-start {
+    align-items: flex-start;
+}
 /* End Flex Styling */
 
 /* List Styling */
@@ -84,6 +104,24 @@ main {
 .selectedPath a {
     color: var(--color7);
 }
+
+.flex-title {
+    color: var(--color7);
+    font-size: 2rem;
+    text-shadow: 0.5px 0.5px 1px black;
+}
+
+.font-size-105 {
+    font-size: 1.05rem;
+}
+
+.fontColor7 {
+    color: var(--color7);
+}
+
+.text-shadow7575120 {
+    text-shadow: 0.75px 0.75px 1.2px black;
+}
 /* End Font Styling */
 
 /* Spacing Styling */
@@ -93,6 +131,26 @@ main {
 
 .padding-none {
     padding: 0;
+}
+
+.margin-bottom-tiny {
+    margin-bottom: 15px;
+}
+
+.padding-bottom-tiny {
+    padding-bottom: 5px;
+}
+
+.border-bottom-2 {
+    border-bottom: var(--color8) solid 2px;
+}
+
+.margin-top-tiny {
+    margin-top: 15px;
+}
+
+.margin-top-small {
+    margin-top: 35px;
 }
 /* End Spacing Styling */
 
@@ -105,6 +163,26 @@ main {
     width: 200px;
 }
 /* End Logo Styling */
+
+/* Lable Styling */
+label {
+    margin-bottom: 7px;
+    font-size: 1.05rem;
+    color: var(--color7);
+    text-shadow: 0.75px 0.75px 1.2px black;
+}
+/* End Label Styling */
+
+.raised-panel {
+    padding: 8px 12px;
+    box-shadow: 0 0 7px black;
+}
+
+#errorMessage {
+    font-style: italic;
+    font-size: 1.05rem;
+    color: red;
+}
 
 footer {
     padding-top: 30px;
@@ -135,12 +213,27 @@ footer {
 }
 /*End Project Component Settings*/
 
+.site-btn-1 {
+    background-color: var(--color9);
+    color: var(--color8);
+    font-size: 1.05rem;
+    padding: 4px 15px;
+}
+
 .width300 {
     width: 300px;
 }
 
 textarea {
     height: 80px;
+}
+
+.p-60 {
+    width: 60%;
+}
+
+.centered-item {
+    margin: 0 auto;
 }
 
 /* Image Sizing */

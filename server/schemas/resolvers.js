@@ -1,3 +1,4 @@
+require('dotenv').config();
 const { AuthenticationError } = require('apollo-server-express');
 const { User } = require('../models');
 const { signToken } = require('../utils/auth');
@@ -59,16 +60,13 @@ const resolvers = {
             }
             throw new AuthenticationError("Could not complete your request.");
         },
-        sendMessage: async (parent, args, context) => {
-            if(context.user) {
-                const updatedUser = await User.findByIdAndUpdate(
-                    { _id: context.user._id },
-                    { $push: { inbox: { ...args } } }
-                );
-                console.log(updatedUser);
-                return updatedUser;
-            }
-            throw new AuthenticationError("Could not complete your request.");
+        sendMessage: async (parent, args) => {
+            const updatedUser = await User.findOneAndUpdate(
+                { username: process.env.CONTACT_USER_NAME },
+                { $push: { inbox: { ...args } } }
+            );
+            console.log(updatedUser);
+            return updatedUser;
         }
     }
 }

@@ -48,12 +48,42 @@ function getPathString(points) {
     return output;
 }
 
+function getShadowPath(points, sPosition, cPosition) {
+    const absPoints = [];
+    //Find the delta z based on first point in array
+    const deltaZ = sPosition.z - points[0][2];
+    for(let i = 0; i < points.length; i++) {
+        if(points[i][1] === 0) {
+            absPoints.push(points[i]);
+        } else {
+            let deltaX = sPosition.x - points[i][0];
+            let deltaY = sPosition.y - points[i][1];
+            let deltaY2 = points[i][1];
+            let deltaZ2 = deltaZ*deltaY2/deltaY;
+            let deltaX2 = deltaX*deltaY2/deltaY;
+            absPoints.push([points[i][0] - deltaX2, points[i][1] - deltaY2, points[0][2] - deltaZ2]);
+        }
+    }
+    const transformedPoints = absPoints.map(point => {
+        let dX = cPosition.x - point[0];
+        let dY = cPosition.y - point[1];
+        let dZ = cPosition.z - point[2];
+        let magnify = Math.abs(cPosition.fLength/(dZ - Math.abs(cPosition.fLength)));
+        let newX = dX === 0 ? point[0] : cPosition.x + magnify*dX;
+        let newY = dY === 0 ? point[1] : cPosition.y - magnify*dY;
+        return [newX,newY,0];
+    });
+    return getPathString(transformedPoints);
+}
+
 function Building({ colors, position, dimensions }) {
     // position = lower left corner [x,y,z]
     // dimensions = [deltaX, deltaY, deltaZ]
     const state = useSelector(state => {
         return { currentTime: state.currentTime, sunPosition: state.sunPosition, cameraPosition: state.cameraPosition };
     });
+
+    const shadowOpacity = 0.25;
 
     let absPoints = getPoints(position,dimensions);
     const transformedPoints = { front: absPoints.front, left: absPoints.left, right: absPoints.right };
@@ -66,11 +96,13 @@ function Building({ colors, position, dimensions }) {
     let frontFacade = <path d={getPathString(transformedPoints.front)} stroke="black" strokeWidth={lineWidth} fill={`#${hexafy(colors.red)}${hexafy(colors.green)}${hexafy(colors.blue)}`} />
     let leftFacade = <path d={getPathString(transformedPoints.left)} stroke="black" strokeWidth={lineWidth} fill={`#${hexafy(colors.red)}${hexafy(colors.green)}${hexafy(colors.blue)}`} />
     let rightFacade = <path d={getPathString(transformedPoints.right)} stroke="black" strokeWidth={lineWidth} fill={`#${hexafy(colors.red)}${hexafy(colors.green)}${hexafy(colors.blue)}`} />
+    
+    let shadow = <path d={getShadowPath(absPoints.front,state.sunPosition,state.cameraPosition)} stroke="none" fill='black' opacity={shadowOpacity} />
     let outputElement;
     if(state.cameraPosition.x > (2*position[0] + dimensions[0])/2) {
-        outputElement = <g>{leftFacade}{rightFacade}{frontFacade}</g>
+        outputElement = <g>{leftFacade}{rightFacade}{frontFacade}{shadow}</g>
     } else {
-        outputElement = <g>{rightFacade}{leftFacade}{frontFacade}</g>
+        outputElement = <g>{rightFacade}{leftFacade}{frontFacade}{shadow}</g>
     }
     return (
         outputElement
