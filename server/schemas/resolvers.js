@@ -7,7 +7,7 @@ const sendEmail = require('../utils/sendEmail');
 const resolvers = {
     Query: {
         me: async (parent, args, context) => {
-            console.log(context.user);
+            // console.log(context.user);
             if(context.user) {
                 const userData = await User.findOne({ _id: context.user._id })
                 .select("-__v -password")
@@ -18,7 +18,7 @@ const resolvers = {
     },
     Mutation: {
         createUser: async (parent, args) => {
-            console.log(args);
+            // console.log(args);
             const newUser = await User.create(args);
             const token = signToken(newUser);
             return { user: newUser, token };
@@ -37,12 +37,9 @@ const resolvers = {
                 }
             }
 
-            // console.log(loggedUser);
-            console.log(`Password: ${args.password}`);
-
             const correctPW = await loggedUser.isCorrectPassword(args.password);
 
-            console.log(correctPW);
+            // console.log(correctPW);
             if(!correctPW) {
                 throw new AuthenticationError("Improper credentials provided.");
             }
@@ -55,7 +52,7 @@ const resolvers = {
             if(context.user) {
                 const updatedUser = await User.findOne({ _id: context.user._id });
                 const messages = updatedUser.inbox;
-                console.log(messages);
+                // console.log(messages);
                 return updatedUser;
             }
             throw new AuthenticationError("Could not complete your request.");
@@ -65,7 +62,7 @@ const resolvers = {
                 { username: process.env.CONTACT_USER_NAME },
                 { $push: { inbox: { ...args } } }
             );
-            console.log(updatedUser);
+            // console.log(updatedUser);
             return updatedUser;
         }
     }

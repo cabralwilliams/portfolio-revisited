@@ -7,7 +7,7 @@ function Home() {
         return { user: state.user, isLoggedIn: state.isLoggedIn };
     });
 
-    console.log(state);
+    // console.log(state);
     return (
         <CitySceneSplash />
     )

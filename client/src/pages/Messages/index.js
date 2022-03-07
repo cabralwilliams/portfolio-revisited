@@ -9,7 +9,7 @@ function Messages() {
     const state = useSelector(state => {
         return { user: state.user, isLoggedIn: state.isLoggedIn }
     });
-    console.log(state);
+    // console.log(state);
     const dispatch = useDispatch();
 
     const token = auth.loggedIn() ? auth.getToken() : null;
@@ -21,7 +21,7 @@ function Messages() {
     const { loading, data } = useQuery(QUERY_ME);
 
     const user = data?.me || {};
-    console.log(data);
+    // console.log(data);
 
     if(loading) {
         return <div><h3>Messages are loading...</h3></div>

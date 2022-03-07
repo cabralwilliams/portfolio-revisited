@@ -12,7 +12,7 @@ function Login() {
         return { isLoggedIn: state.isLoggedIn, user: state.user };
     });
 
-    console.log(state);
+    // console.log(state);
     const dispatch = useDispatch();
 
     const [createUser] = useMutation(CREATE_USER);
@@ -44,8 +44,8 @@ function Login() {
             const mutationResponse = await createUser({
                 variables: { ...newOb }
             });
-            console.log("Line 44");
-            console.log(mutationResponse);
+            // console.log("Line 44");
+            // console.log(mutationResponse);
             dispatch({
                 type: SET_USER,
                 user: mutationResponse.data.createUser.user,
@@ -64,7 +64,7 @@ function Login() {
             const mutationResponse = await login({
                 variables: { username: signIn.signInUsername, password: signIn.signInPassword }
             });
-            console.log(mutationResponse);
+            // console.log(mutationResponse);
             dispatch({
                 type: SET_USER,
                 user: mutationResponse.data.login.user,

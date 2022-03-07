@@ -4,7 +4,12 @@
   "description": "A revamped version of the portfolio - hopefully with better styling and capability for user contact.",
   "main": "server/server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node server/server.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "develop": "concurrently \"cd server && npm run watch\" \"cd client && npm start\"",
+    "install": "cd server && npm i && cd ../client && npm i",
+    "seed": "cd server && npm run seed",
+    "build": "cd client && npm run build"
   },
   "repository": {
     "type": "git",
@@ -17,6 +22,7 @@
   },
   "homepage": "https://github.com/cabralwilliams/portfolio-revisited#readme",
   "dependencies": {
+    "concurrently": "^7.0.0",
     "nodemailer": "^6.7.2"
   },
   "devDependencies": {}

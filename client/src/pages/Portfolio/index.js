@@ -43,7 +43,7 @@ function Portfolio() {
             projecttitle: 'Weather Dashboard',
             githubrepo: 'https://github.com/cabralwilliams/weather-dashboard',
             livelink: 'https://cabralwilliams.github.io/weather-dashboard/',
-            techList: ["JavaScript","jQuery","Foundation","API"]
+            techList: ["JavaScript","Bootstrap","API"]
         },
         {
             imagealt: 'Landing page view with links to learn some things math',

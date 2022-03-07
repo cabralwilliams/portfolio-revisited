@@ -49,7 +49,7 @@ function Contact() {
         const mutationResponse = await sendMessage({
             variables: { ...formState }
         });
-        console.log(mutationResponse);
+        // console.log(mutationResponse);
         window.location.replace('/success');
     }
 

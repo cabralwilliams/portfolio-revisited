@@ -126,9 +126,10 @@ function CitySceneSplash() {
     }
     return(
         <div className='flex-column align-items-center'>
-            <h2 className='flex-title'>Welcome!</h2>
+            <h2 className='flex-title'>Welcome to Portfolio Revisited!</h2>
             <img src={require("../../assets/images/NoCap1.jpg")} className="avatar-dim main-image centered-item" alt='Avatar' />
             <p className='p-60'>I have grown ever more passionate about learning more things coding related as the years have gone by.  I particularly enjoy trying to come up with creative projects, like the intro that you just saw.  Please have a look around and certainly contact me if you have any questions!</p>
+            <p>Cabral Williams | cabral.williams@gmail.com | 713-392-9919</p>
         </div>
     )
 }

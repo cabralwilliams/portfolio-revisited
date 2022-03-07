@@ -29,7 +29,7 @@ const reducer = (state, action) => {
             const newOpacity = calcOpacity(action.currentTime.getHours()*60 + action.currentTime.getMinutes());
             return { ...state, currentTime: action.currentTime, sunPosition: newPosition, sceneOpacity: newOpacity };
         case SET_USER:
-            console.log(action);
+            // console.log(action);
             return { ...state, user: action.user, isLoggedIn: action.isLoggedIn };
         case END_SESSION:
             return { ...state, user: {}, isLoggedIn: action.isLoggedIn };
