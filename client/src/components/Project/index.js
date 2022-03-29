@@ -5,8 +5,12 @@ function Project(props) {
     const displayTechs = event => {
         // console.dir(event.target);
         if(event.target.classList.contains('flex-project')) {
-            // console.dir(event.target.children[3]);
+            console.dir(event.target.children);
             event.target.children[3].classList.add("showTechnologies");
+            event.target.children[4].classList.remove("displayOnHover");
+            setTimeout(() => {
+                event.target.children[4].classList.add("displayOnHover");
+            }, 12000);
         }
     }
     const hideTechs = event => {
@@ -27,6 +31,7 @@ function Project(props) {
                 <a href={props.livelink}>Live Application</a>
             </div>
             <TechnologyList techList={props.techList} />
+            <div className='project-description displayOnHover'>{props.projectDescription}</div>
         </div>
     )
 }

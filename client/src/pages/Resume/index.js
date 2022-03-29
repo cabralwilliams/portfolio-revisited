@@ -18,6 +18,7 @@ function Resume(props) {
                             <li className="font-size-105 text-shadow7575120">React</li>
                             <li className="font-size-105 text-shadow7575120">Foundation</li>
                             <li className="font-size-105 text-shadow7575120">Bootstrap</li>
+                            <li className="font-size-105 text-shadow7575120">Thymeleaf</li>
                         </ul>
                     </div>
                     <div className="proficiencies raised-panel bgColor8">
@@ -30,6 +31,7 @@ function Resume(props) {
                             <li className="font-size-105 text-shadow7575120">GraphQL</li>
                             <li className="font-size-105 text-shadow7575120">Python</li>
                             <li className="font-size-105 text-shadow7575120">Flask</li>
+                            <li className="font-size-105 text-shadow7575120">Spring Framework</li>
                         </ul>
                     </div>
                 </div>

@@ -195,6 +195,7 @@ footer {
     align-items: center;
     flex: 0 1 40%;
     margin-bottom: 20px;
+    position: relative;
 }
 
 .flex-project h3 {
@@ -244,8 +245,16 @@ textarea {
 /* End Image Sizing */
 
 /* Technology List Styling */
-.flex-project {
-    position: relative;
+.project-description {
+    background-color: var(--color9);
+    position: absolute;
+    z-index: 1000;
+    box-shadow: 0px 0px 4px #000;
+    top: 200px;
+    color: var(--color7);
+    font-size: 1.15rem;
+    border-radius: 0.15rem;
+    padding: 5px;
 }
 
 .displayOnHover {
